@@ -16,8 +16,11 @@ randomize.addEventListener('click', result);
 
 function result() {
 
-  if(customName.value !== '') {
-    const name = customName.value;
+  if(document.getElementById("uk").checked) {
+    const weight = Math.round(300 * 0.0714286) + ' stone';
+    const temperature =  Math.round((94 - 32) * 5/9) + ' centigrade';
+    newStory = newStory.replace( temperature);
+    newStory = newStory.replace( weight);
 
   }
 
@@ -26,7 +29,17 @@ function result() {
     const temperature =  Math.round(94);
 
   }
+  let newStory = storyText;
 
-  story.textContent = ;
+  let xItem = randomValueFromArray(insertX);
+  let yItem = randomValueFromArray(insertY);
+  let zItem = randomValueFromArray(insertZ);
+
+  newStory = newStory.replace(':insertx:', xItem);
+  newStory = newStory.replace(':inserty:', yItem);
+  newStory = newStory.replace(':insertz:', zItem);
+
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
+
