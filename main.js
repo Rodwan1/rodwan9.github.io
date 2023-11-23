@@ -16,20 +16,19 @@ const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewal
 randomize.addEventListener('click', result);
 
 function result() {
+  let newStory = storyText;
 
   if(customName.value !== '') {
     const name = customName.value;
-    let newStory = storyText.replace('Bob', name);
+    newStory = newStory.replace('Bob', name);
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300 * 0.0714286) + ' stone';
+    const weight = Math.round(300 * 0.071429) + ' stone';
     const temperature =  Math.round((94 - 32) * 5/9) + ' centigrade';
     newStory = newStory.replace('94 fahrenheit', temperature);
     newStory = newStory.replace('300 pounds', weight);
   }
-
-  let newStory = storyText;
 
   let xItem = randomValueFromArray(insertX);
   let yItem = randomValueFromArray(insertY);
